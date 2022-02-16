@@ -1,0 +1,29 @@
+.history-item-container {
+  width: 800px;
+  border: 0px solid blueviolet;
+  border-radius: 15px;
+  background-color: aqua;
+  padding: 5px;
+}
+
+.history-item {
+  display: flex;
+  /* justify-content: space-around; */
+  margin: 10px;
+}
+
+.brand-icon {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.domain-name-delete-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+.delete-icon {
+  margin-left: auto;
+}
