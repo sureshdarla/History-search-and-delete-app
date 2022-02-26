@@ -1,29 +1,46 @@
-.history-item-container {
-  width: 800px;
-  border: 0px solid blueviolet;
-  border-radius: 15px;
-  background-color: aqua;
-  padding: 5px;
+.time-accessed {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: grey;
+  font-weight: 600;
+  margin-right: 14px;
 }
-
 .history-item {
   display: flex;
-  /* justify-content: space-around; */
-  margin: 10px;
+  align-items: center;
+  flex: wrap;
 }
-
-.brand-icon {
-  height: 20px;
-  width: 20px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-
-.domain-name-delete-button-container {
+.logo-title-url-container {
   display: flex;
-  flex-direction: row;
-  align-items: space-between;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  align-items: center;
 }
-.delete-icon {
+.logo-title-url {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.domain-logo {
+  margin: 5px;
+  margin-right: 10px;
+  /* box-shadow: 1px 2px 3px 4px lightblue; */
+}
+.title {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: black;
+  font-weight: 600;
+  margin: 3px;
+}
+.domain-url {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: grey;
+  font-weight: 600;
+  margin: 3px;
+}
+.delete-button {
   margin-left: auto;
+  box-shadow: 1px 1px 3px 5px grey;
 }
