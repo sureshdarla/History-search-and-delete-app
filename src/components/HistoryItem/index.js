@@ -1,33 +1,34 @@
-import './index.css'
+// import {Link} from 'react-router-dom'
 
-const deleteIconUrl = 'https://assets.ccbp.in/frontend/react-js/delete-img.png'
+import './index.css'
 
 const HistoryItem = props => {
   const {eachHistoryItem, deleteHistoryItem} = props
-  //   console.log(eachHistoryItem)
-  const {id, timeAccessed, logoUrl, title, domainUrl} = eachHistoryItem
 
-  const deleteHistory = () => {
+  const {timeAccessed, logoUrl, title, domainUrl, id} = eachHistoryItem
+
+  const onClickDelete = () => {
     deleteHistoryItem(id)
   }
 
   return (
-    <div className="history-item-container">
-      <div>
-        <div className="history-item">
-          <span>{timeAccessed}</span>
-          <img src={logoUrl} className="brand-icon" />
-          {/* <div className="domain-name-delete-button-container"> */}
-          <span>{title}</span>
-          <span>{domainUrl}</span>
+    <li className="history-item">
+      <p className="time-accessed">{timeAccessed}</p>
+      {/* <li className="logo-title-url-container"> */}
+      {/* <div className="logo-title-url"> */}
+      <img src={logoUrl} alt="domain logo" className="domain-logo" />
+      <p className="title">{title}</p>
 
-          <button type="button" onClick={deleteHistory} className="delete-icon">
-            <img src={deleteIconUrl} />
-          </button>
-        </div>
-        {/* <hr /> */}
-      </div>
-    </div>
+      <p className="domain-url">{domainUrl}</p>
+
+      <button type="button" className="delete-button" onClick={onClickDelete}>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+          alt="delete"
+        />
+      </button>
+      {/* </div> */}
+    </li>
   )
 }
 
