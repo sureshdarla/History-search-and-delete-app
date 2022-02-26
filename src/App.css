@@ -10,10 +10,73 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.history-items-conatiner {
-  border: 0px solid blueviolet;
-  border-radius: 0px;
-  background-color: goldenrod;
+.history-nav {
+  background-color: blue;
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.history-image {
+  height: 40px;
+  width: 140px;
+}
+.search-icon {
+  height: 35px;
+  width: 30px;
+  border: 1px solid white;
+  border-radius: 2px;
+  width: fit-content;
+  background-color: blue;
+  margin-right: 3px;
+  box-shadow: 1px 1px 1px 1px;
+}
+input {
+  height: 35px;
+  width: 300px;
+  border: 1px solid white;
+  border-radius: 2px;
+  /* width: fit-content; */
+  background-color: white;
+  /* margin: auto; */
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: blue;
+}
+.search-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.history-items {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+  border: 0px solid none;
+  box-shadow: 2px 3px 5px 1px grey;
+  margin: 50px;
+  padding: 40px;
+}
+.empty-history-msg {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 35px;
+  font-weight: 800;
+}
+.clear-all-button-container {
+  text-align: center;
   padding: 10px;
+}
+.clear-all-button {
+  background-color: blue;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: 500;
+  border: 0px solid none;
+  border-radius: 10px;
+}
+.history-list {
+  font-family: 'Roboto';
+  font-size: 50px;
 }
