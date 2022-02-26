@@ -1,7 +1,5 @@
 import {Component} from 'react'
 
-import HistoryItemsSearch from './components/HistoryItemsSearch'
-
 import HistoryItem from './components/HistoryItem'
 
 import './App.css'
@@ -83,6 +81,7 @@ const initialHistoryList = [
 ]
 
 // Replace your code here
+
 class App extends Component {
   state = {searchInput: '', historyList: initialHistoryList}
 
@@ -92,41 +91,77 @@ class App extends Component {
 
   deleteHistoryItem = historyItemId => {
     const {historyList} = this.state
-    const filteredHistoryItems = historyList.filter(
-      eachItem => eachItem.id !== historyItemId,
+    const filteredList = historyList.filter(
+      eachHistoryItem => eachHistoryItem.id !== historyItemId,
     )
-    this.setState({historyList: filteredHistoryItems})
+    this.setState({historyList: filteredList})
+  }
+
+  onClickClearAllHistory = () => {
+    this.setState({historyList: ''})
   }
 
   render() {
-    const {historyList, searchInput} = this.state
-    console.log(searchInput)
+    const {searchInput, historyList} = this.state
 
     const searchResults = historyList.filter(eachHistoryItem =>
       eachHistoryItem.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
+    console.log('in render()', initialHistoryList)
+
     return (
-      <div>
-        <input
-          type="text"
-          value={searchInput}
-          onChange={this.onChangeSearchInput}
-        />
-        <div className="history-items-conatine">
-          {searchResults.length !== 0 ? (
-            searchResults.map(eachItem => (
-              <HistoryItem
-                eachHistoryItem={eachItem}
-                deleteHistoryItem={this.deleteHistoryItem}
+      <>
+        <div className="history-search">
+          {/* <h1>HIstory list</h1> */}
+          <nav className="history-nav">
+            <div>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
+                alt="app logo"
+                className="history-image"
               />
-            ))
-          ) : (
-            <h1>There is no history to show</h1>
-          )}
+            </div>
+            <div className="search-input-container">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+                alt="search"
+                className="search-icon"
+              />
+              <input
+                type="search"
+                value={searchInput}
+                className="search-input-container"
+                onChange={this.onChangeSearchInput}
+              />
+            </div>
+          </nav>
+          {/* <div className="clear-all-button-container">
+            <button
+              type="button"
+              className="clear-all-button"
+              onClick={this.onClickClearAllHistory}
+            >
+              Clear all
+            </button>
+          </div> */}
+          <ul className="history-items">
+            {searchResults.length !== 0 ? (
+              searchResults.map(eachItem => (
+                <HistoryItem
+                  eachHistoryItem={eachItem}
+                  deleteHistoryItem={this.deleteHistoryItem}
+                  key={eachItem.id}
+                />
+              ))
+            ) : (
+              <p className="empty-history-msg">There is no history to show</p>
+            )}
+          </ul>
         </div>
-      </div>
+      </>
     )
   }
 }
+
 export default App
